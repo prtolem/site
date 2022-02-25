@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    </head>
+    <body>
+    	<div>
+            <a href="{{url_for('log')}}">Выйти из аккаунта</a><br>
+            <a href="{{url_for('cont')}}">Вернуться</a><br>
+            {%for msg in get_flashed_messages() %}
+                {{ msg }}
+            {% endfor %}
+        	<form method="POST">
+            	{{ part.hidden_tag() }}
+                {{ part.cookies.label() }}
+                {% if part.cookies.errors %}
+                    {%for err in part.cookies.errors %}
+                        {{ err }}
+                    {% endfor %}
+                {% else %}
+                    {{ part.cookies() }}<br>
+                {%endif%}
+                
+                {{ part.proxy.label() }}
+                {% if part.proxy.errors %}
+                    {%for err in part.proxy.errors %}
+                        {{ err }}
+                    {% endfor %}
+                {% else %}
+                    {{ part.proxy() }}<br>
+                {%endif%}<br>
+
+                {{ part.UserAgent.label() }}
+                {% if part.UserAgent.errors %}
+                    {%for err in part.UserAgent.errors %}
+                        {{ err }}
+                    {% endfor %}
+                {% else %}
+                    {{ part.UserAgent() }}<br>
+                {%endif%}<br>
+                
+                {{ part.submit() }}
+            </form>
+        </div>
+    </body>
+</html>

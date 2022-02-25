@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    </head>
+    <body>
+    	<div>
+            <a href="{{url_for('index')}}">Запустить автоучастие</a><br>
+            <a href="{{url_for('log')}}">Выйти из аккаунта</a><br>
+            {{user.cookies}}<br>
+            {{user.proxy}}<br>
+            {{user.UserAgent}}<br>
+            <a href="control-replace">Изменить</a>
+        
+        </div>
+    </body>
+</html>
